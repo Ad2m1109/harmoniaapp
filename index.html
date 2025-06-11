@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Harmonia - A privacy-first support app for Alzheimer's patients and caregivers, designed to maintain independence with dignity.">
+  <title>Harmonia - Alzheimer's Patient Support App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #38B6FF;
+      --primary-dark: #009fe3;
+      --secondary: #EAF7FF;
+      --accent: #FF7C87;
+      --light: #ffffff;
+      --dark: #3D3D3D;
+      --gray: #6c757d;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --rounded-sm: 8px;
+      --rounded-md: 12px;
+      --rounded-lg: 16px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Baloo 2', cursive;
+      line-height: 1.6;
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      background-color: var(--secondary);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #A3DCFF);
+      color: var(--light);
+      padding: 2rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"><path d="M0 0 L100 100 M100 0 L0 100"/></svg>');
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    header img {
+      height: 100px;
+      width: auto;
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+
+    header img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      margin-top: 0;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.75rem; }
+      h3 { font-size: 1.25rem; }
+    }
+
+    .hero {
+      padding: 4rem 0;
+      background-color: var(--light);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="%23EAF7FF"/></svg>');
+      background-size: cover;
+    }
+
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      max-height: 300px;
+      margin: 2rem auto;
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      border: 5px solid var(--light);
+    }
+
+    .hero img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-sm);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border-bottom: 4px solid var(--primary);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-bottom-color: var(--accent);
+    }
+
+    .feature-card img {
+      height: 150px;
+      width: auto;
+      margin: 1rem auto;
+      display: block;
+      border-radius: var(--rounded-sm);
+      box-shadow: var(--shadow-sm);
+      object-fit: contain;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 0.5rem;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--dark);
+    }
+
+    .btn-secondary:hover {
+      background: #d4f0ff;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+    }
+
+    .btn-accent:hover {
+      background: #ff5a6a;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 0 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial {
+      font-style: italic;
+      background: #DFF4FF;
+      padding: 1.5rem;
+      border-left: 5px solid var(--accent);
+      margin: 2rem 0;
+      border-radius: var(--rounded-sm);
+      position: relative;
+    }
+
+    .testimonial::before {
+      content: "\201C";
+      font-size: 4rem;
+      color: var(--accent);
+      opacity: 0.3;
+      position: absolute;
+      top: -1rem;
+      left: 0.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      margin-top: 1rem;
+      color: var(--dark);
+      font-style: normal;
+    }
+
+    .download-section {
+      text-align: center;
+      padding: 4rem 0;
+      background-color: #d4f0ff;
+      position: relative;
+    }
+
+    .download-section::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="%23d4f0ff"/></svg>');
+      background-size: cover;
+    }
+
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .qr-code {
+      background: white;
+      padding: 1.5rem;
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .qr-code:hover {
+      transform: scale(1.05);
+    }
+
+    .qr-code img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 1rem;
+    }
+
+    .download-options {
+      text-align: center;
+    }
+
+    .download-options h3 {
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .store-badge {
+      height: 50px;
+      margin: 10px;
+      transition: var(--transition);
+      border-radius: var(--rounded-sm);
+    }
+
+    .store-badge:hover {
+      transform: scale(1.05);
+    }
+
+    .tech-specs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .tech-column {
+      flex: 1;
+      min-width: 280px;
+      background: white;
+      padding: 2rem;
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .tech-column:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tech-column h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tech-column ul {
+      list-style: none;
+    }
+
+    .tech-column li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .tech-column li::before {
+      content: "✓";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .app-showcase {
+      max-width: 100%;
+      margin: 3rem auto 0;
+      border-radius: var(--rounded-md);
+      box-shadow: var(--shadow-lg);
+      border: 5px solid white;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: var(--rounded-sm);
+    }
+
+    .nav-links a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--accent);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    /* Animation classes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Accessibility improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    :focus {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 3rem 0;
+      }
+      
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .qr-container {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <img src="images/logo2.png" alt="Harmonia Logo - A stylized brain with heart elements">
+      <h1>Harmonia</h1>
+      <p>Empowering Alzheimer's patients with dignity and independence</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2 class="animate">A Privacy-First Support App for Alzheimer's Patients and Caregivers</h2>
+      <p class="animate delay-1">Harmonia is designed specifically to help individuals with Alzheimer's maintain independence while providing caregivers with peace of mind.</p>
+      <img src="images/tl (14).webp" alt="Harmonia app interface showing main dashboard" class="animate delay-2">
+      <div class="animate delay-3">
+        <a href="#download" class="btn">
+          <i class="fas fa-download"></i>
+          Download Now
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          <i class="fas fa-search"></i>
+          Explore Features
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Key Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card animate">
+          <div class="feature-icon"><i class="fas fa-bell"></i></div>
+          <h3>Smart Reminders</h3>
+          <img src="images/tl (19).webp" alt="Smart reminders interface with medication alerts">
+          <p>Gentle medication alerts and task notifications with voice input to support routines.</p>
+        </div>
+        <div class="feature-card animate delay-1">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <h3>Family Profiles</h3>
+          <img src="images/tl (10).webp" alt="Family profiles showing photos of loved ones">
+          <p>Photo-based recognition helps patients remember loved ones with visual cues.</p>
+        </div>
+        <div class="feature-card animate delay-2">
+          <div class="feature-icon"><i class="fas fa-book"></i></div>
+          <h3>Digital Journal</h3>
+          <img src="images/tl (16).webp" alt="Digital journal interface with photos and notes">
+          <p>Record moods, thoughts, and memories through photos, notes, and voice logs.</p>
+        </div>
+        <div class="feature-card animate delay-1">
+          <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+          <h3>Memory Games</h3>
+          <img src="images/tl (17).webp" alt="Memory matching game with family photos">
+          <p>Engaging exercises personalized with familiar faces to support cognition.</p>
+        </div>
+        <div class="feature-card animate delay-2">
+          <div class="feature-icon"><i class="fas fa-universal-access"></i></div>
+          <h3>Accessibility Suite</h3>
+          <img src="images/tl (20).webp" alt="App interface showing large buttons and high contrast">
+          <p>Large buttons, voice controls, high contrast UI — easy for everyone to use.</p>
+        </div>
+        <div class="feature-card animate delay-3">
+          <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <h3>Secure Backup</h3>
+          <img src="images/tl (24).webp" alt="Cloud backup settings screen">
+          <p>Optional Google Drive sync for data recovery — completely private and encrypted.</p>
+        </div>
+        <div class="feature-card animate">
+          <div class="feature-icon"><i class="fas fa-first-aid"></i></div>
+          <h3>Emergency SOS</h3>
+          <img src="images/tl (25).webp" alt="Emergency SOS button interface">
+          <p>Instantly call a trusted contact using the SOS button on the home screen.</p>
+        </div>
+        <div class="feature-card animate delay-1">
+          <div class="feature-icon"><i class="fas fa-wifi"></i></div>
+          <h3>Offline Functionality</h3>
+          <img src="images/tl (26).webp" alt="App working without internet connection">
+          <p>Works without internet — all data is saved locally for safety and privacy.</p>
+        </div>
+        <div class="feature-card animate delay-2">
+          <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Geofence Alerts</h3>
+          <img src="images/tl (15).webp" alt="Map interface showing safe zones">
+          <p>Notifies caregivers if the patient moves over 100 meters from home.</p>
+        </div>
+        <div class="feature-card animate delay-3">
+          <div class="feature-icon"><i class="fas fa-smile"></i></div>
+          <h3>Emotional Journal</h3>
+          <img src="images/tl (27).webp" alt="Mood tracking interface with emoji selection">
+          <p>Track emotional well-being through a daily mood log interface.</p>
+        </div>
+        <div class="feature-card animate">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h3>PIN Protection</h3>
+          <img src="images/tl (28).webp" alt="PIN entry screen for security">
+          <p>Only caregivers with a PIN can edit personal or medical details.</p>
+        </div>
+        <div class="feature-card animate delay-1">
+          <div class="feature-icon"><i class="fas fa-adjust"></i></div>
+          <h3>Light & Dark Mode</h3>
+          <img src="images/tl (29).webp" alt="App showing both light and dark mode">
+          <p>User-friendly interface that adapts to different lighting preferences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color: #f8fafc;">
+    <div class="container">
+      <h2 class="section-title">Technical Excellence</h2>
+      <div class="tech-specs">
+        <div class="tech-column animate">
+          <h3><i class="fas fa-user-shield"></i> Privacy by Design</h3>
+          <ul>
+            <li>100% offline operation</li>
+            <li>Local encrypted data storage</li>
+            <li>No cloud database</li>
+            <li>User-controlled backups</li>
+            <li>No data sharing with third parties</li>
+          </ul>
+        </div>
+        <div class="tech-column animate delay-1">
+          <h3><i class="fas fa-universal-access"></i> Built for Accessibility</h3>
+          <ul>
+            <li>Voice commands</li>
+            <li>Clear, large UI</li>
+            <li>Multilingual support</li>
+            <li>Simple navigation</li>
+            <li>Adjustable text sizes</li>
+          </ul>
+        </div>
+      </div>
+      <img src="images/tl (30).webp" alt="Technical diagram showing app architecture" style="max-width: 100%; margin: 3rem auto 0; display: block; border-radius: var(--border-radius); box-shadow: var(--shadow);" class="animate delay-2">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What Families Are Saying</h2>
+      <div class="testimonial animate">
+        <p>"Harmonia has been a game-changer for my father. The photo recognition feature helps him remember us even on difficult days, and the reminders ensure he takes his medication on time. As a caregiver, the peace of mind is priceless."</p>
+        <p class="testimonial-author">— Sarah Johnson, Daughter of Alzheimer's Patient</p>
+      </div>
+      <div class="testimonial animate delay-1">
+        <p>"The simple interface means my wife can use it independently. She enjoys the memory games with our family photos, and I appreciate the alerts if she wanders beyond our neighborhood. It respects her dignity while keeping her safe."</p>
+        <p class="testimonial-author">— Michael Chen, Husband and Caregiver</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="download" class="download-section">
+    <div class="container">
+      <h2 class="animate">Download Harmonia Today</h2>
+      <p class="animate delay-1">Scan the QR code or use the buttons below to download the app</p>
+      <div class="qr-container">
+        <div class="qr-code animate delay-2">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yourdownloadlink.com/harmonia.apk" alt="QR Code to download Harmonia app">
+          <p style="color: var(--dark);">Scan to download</p>
+        </div>
+        <div class="animate delay-3">
+          <h3>Soon will be available on:</h3>
+          <div style="margin-top: 1rem;">
+            <a href="https://play.google.com/store" target="_blank" aria-label="Download on Google Play">
+              <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store">
+            </a>
+            <a href="https://www.apple.com/app-store/" target="_blank" aria-label="Download on the App Store">
+              <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3>Harmonia</h3>
+      <p>Alzheimer's Patient Support App</p>
+      
+      <div class="team-section">
+        <h4>Our Dedicated Team</h4>
+        <div>
+          <span class="team-member">
+            <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+            Adem Youssfi
+          </span>
+          <span class="team-member">
+            <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+            Chaima Dhouibi
+          </span>
+          <span class="team-member">
+            <i class="fas fa-user" style="margin-right: 0.5rem;"></i>
+            Ayhem Belhassen
+          </span>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="mailto:ademyoussfi57@gmail.com">Contact Us</a>
+      </div>
+      <p style="margin-top: 2rem;">© 2025 Harmonia Development Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // Back to top functionality
+    const backToTopButton = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Scroll animations
+    const animateElements = document.querySelectorAll('.animate');
+    
+    const animateOnScroll = () => {
+      animateElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (elementPosition < screenPosition) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>
