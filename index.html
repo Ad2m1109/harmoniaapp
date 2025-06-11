@@ -643,24 +643,31 @@
   </section>
 
   <section id="download" class="download-section">
-    <div class="container">
-      <h2 class="animate">Download Harmonia Today</h2>
-      <p class="animate delay-1">Scan the QR code or use the buttons below to download the app</p>
-      <div class="qr-container">
-        <div class="qr-code animate delay-2">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yourdownloadlink.com/harmonia.apk" alt="QR Code to download Harmonia app">
-          <p style="color: var(--dark);">Scan to download</p>
-        </div>
-        <div class="animate delay-3">
-          <h3>Soon will be available on:</h3>
-          <div style="margin-top: 1rem;">
-            <a href="https://play.google.com/store" target="_blank" aria-label="Download on Google Play">
-              <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store">
-            </a>
-            <a href="https://www.apple.com/app-store/" target="_blank" aria-label="Download on the App Store">
-              <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
-            </a>
-          </div>
+  <div class="container">
+    <h2 class="animate">Download Harmonia Today</h2>
+    <p class="animate delay-1">Scan the QR code or click the button below to download the app</p>
+    
+    <div class="qr-container">
+      <div class="qr-code animate delay-2">
+        <!-- Updated QR Code with direct download link -->
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/uc?export=download&id=19X-IKcf51eRdpff7FiR55wLiLKLleaBP" alt="QR Code to download Harmonia app">
+        <p style="color: var(--dark);">Scan to download</p>
+      </div>
+      
+      <div class="download-options animate delay-3">
+        <!-- Manual download button -->
+        <a href="https://drive.google.com/uc?export=download&id=19X-IKcf51eRdpff7FiR55wLiLKLleaBP" class="btn" download="Harmonia.apk">
+          <i class="fas fa-download"></i> Direct Download
+        </a>
+        
+        <h3 style="margin-top: 2rem;">Soon will be available on:</h3>
+        <div style="margin-top: 1rem;">
+          <a href="https://play.google.com/store" target="_blank" aria-label="Download on Google Play">
+            <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store">
+          </a>
+          <a href="https://www.apple.com/app-store/" target="_blank" aria-label="Download on the App Store">
+            <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+          </a>
         </div>
       </div>
     </div>
