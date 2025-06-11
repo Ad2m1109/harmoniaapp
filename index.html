@@ -643,32 +643,34 @@
   </section>
 
   <section id="download" class="download-section">
-  <div class="container">
-    <h2 class="animate">Download Harmonia Today</h2>
-    <p class="animate delay-1">Scan the QR code or click the button below to download the app</p>
-    
-    <div class="qr-container">
-      <div class="qr-code animate delay-2">
-        <!-- Updated QR Code with direct download link -->
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/uc?export=download&id=19X-IKcf51eRdpff7FiR55wLiLKLleaBP" alt="QR Code to download Harmonia app">
-        <p style="color: var(--dark);">Scan to download</p>
-      </div>
+    <div class="container">
+      <h2 class="animate">Download Harmonia Today</h2>
+      <p class="animate delay-1">Scan the QR code or click the button below to download the app</p>
       
-      <div class="download-options animate delay-3">
-        <!-- Manual download button -->
-        <a href="https://drive.google.com/uc?export=download&id=19X-IKcf51eRdpff7FiR55wLiLKLleaBP" class="btn" download="Harmonia.apk">
-          <i class="fas fa-download"></i> Direct Download
-        </a>
+      <div class="qr-container">
+        <div class="qr-code animate delay-2">
+          <!-- Your QR Code Image -->
+          <img src="qrcode.png" alt="QR Code to download Harmonia app" style="width: 150px; height: 150px;">
+          <p style="color: var(--dark);">Scan to download</p>
+        </div>
         
-        <h3 style="margin-top: 2rem;">Soon will be available on:</h3>
-        <div style="margin-top: 1rem;">
-          <a href="https://play.google.com/store" target="_blank" aria-label="Download on Google Play">
-            <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play Store">
-          </a>
-          <a href="https://www.apple.com/app-store/" target="_blank" aria-label="Download on the App Store">
-            <img class="store-badge" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+        <div class="download-options animate delay-3">
+          <!-- Manual download button -->
+          <a href="https://drive.google.com/uc?export=download&id=19X-IKcf51eRdpff7FiR55wLiLKLleaBP" class="btn" download="Harmonia.apk">
+            <i class="fas fa-download"></i> Direct Download
           </a>
         </div>
+      </div>
+
+      <!-- Installation instructions -->
+      <div class="animate" style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: var(--rounded-md);">
+        <h3>Installation Guide</h3>
+        <ol style="text-align: left; max-width: 600px; margin: 1rem auto;">
+          <li>Download the APK file</li>
+          <li>Open your Downloads folder and tap the APK</li>
+          <li>If blocked, go to <strong>Settings → Security → Enable "Install unknown apps"</strong></li>
+          <li>Follow the installation prompts</li>
+        </ol>
       </div>
     </div>
   </section>
